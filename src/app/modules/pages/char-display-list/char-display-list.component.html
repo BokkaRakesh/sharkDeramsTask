@@ -1,19 +1,70 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4 text-center">
-      <p>
-        char-display-list works!
-      </p>
-    </div>
-    <div class="col-lg-4 text-center">
-      <p>
-        Hello world
-      </p>
-    </div>
-    <div class="col-lg-4 text-center">
-      <p>
-        Hello world
-      </p>
-    </div>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
   </div>
+  <mat-table #table [dataSource]="dataSource.data[0]" matSort>
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="planet">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Planet</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.planet}} </mat-cell>
+    </ng-container>
+
+
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="height">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Height</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.height}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row"
+      [cdkDetailRowTpl]="tpl">
+    </mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+
+<ng-template #tpl let-element>
+  <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <img [src]=element.image alt="animeImage" style="height: 50%; width:50%">
+        </div>
+        <div class="col-lg-8">
+          <h6 style="font-weight: bold;">
+            Description:
+
+          </h6>
+          <p>
+            {{element.description}}
+          </p>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- The symbol for {{}} is {{element.species}} -->
+  </div>
+</ng-template>

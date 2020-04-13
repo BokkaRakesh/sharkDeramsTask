@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -8,7 +9,9 @@
     "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "importHelpers": true,
     "experimentalDecorators": true,
+    "allowJs": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -17,5 +20,6 @@
       "es2018",
       "dom"
     ]
-  }
+  },
+
 }
