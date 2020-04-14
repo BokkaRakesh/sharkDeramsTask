@@ -13,7 +13,6 @@ export class DataServiceService {
       .get("../../../../../assets/json/sampleData.json")
       .subscribe(
         (data: any) => {
-          console.log("DataServiceService -> customApiCall -> data", data);
           this.globalArray.push(data);
         },
         (err: HttpErrorResponse) => {

@@ -43,7 +43,6 @@ export class CharDisplayListComponent implements OnInit {
   testFunction() {
     this.data.customApiCall();
 
-    console.log("CharDisplayListComponent -> testFunction -> testFunction");
     this.apiData = this.data.globalArray;
     console.log(
       "CharDisplayListComponent -> testFunction -> this.apiData ",
@@ -54,9 +53,7 @@ export class CharDisplayListComponent implements OnInit {
       "CharDisplayListComponent -> testFunction -> this.dummyData.",
       this.dummyData[0]
     );
-    this.dummyData.map((res) => {
-      console.log("CharDisplayListComponent -> testFunction -> res", res);
-    });
+    this.dummyData.map((res) => {});
     this.dataSource = new MatTableDataSource(this.apiData);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -83,10 +80,3 @@ export class CharDisplayListComponent implements OnInit {
     );
   }
 }
-export interface PeriodicElement {
-  name: string;
-  planet: number;
-  height: number;
-  gender: string;
-}
-// const ELEMENT_DATA: PeriodicElement[] = this.
