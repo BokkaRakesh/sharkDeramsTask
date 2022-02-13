@@ -27,7 +27,7 @@
     "@auth0/angular-jwt": "^2.1.2",
     "@material/elevation": "^3.1.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.2",
-    "ajv": "^6.11.0",
+    "ajv": "^6.12.3",
     "angular-flux": "0.0.0",
     "angular-font-awesome": "^3.1.2",
     "angular-in-memory-web-api": "^0.8.0",
